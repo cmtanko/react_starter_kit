@@ -22,6 +22,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-scripts start",
+    "heroku-postbuild": "npm --production=false && npm run build",
     "flow": "flow",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
