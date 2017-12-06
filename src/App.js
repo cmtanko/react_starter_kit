@@ -1,43 +1,30 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap'
+import React, { Component, PropTypes } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
+import { connect } from 'react-redux';
+import HomePage from './components/home/HomePage';
+import AboutPage from './components/about/AboutPage';
+import Header from './components/common/Header';
+import CoursesPage from './components/course/CoursesPage';
 
 class App extends Component {
-  render () {
+  render() {
     return (
-      <div className='App'>
-        <Navbar collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href='#'>React-Starter-Kit</a>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav>
-              <NavItem eventKey={1} href='#'>Home</NavItem>
-              <NavItem eventKey={2} href='#'>Users</NavItem>
-            </Nav>
-            <Nav pullRight>
-              <NavItem eventKey={1} href='#'>Register</NavItem>
-              <NavItem eventKey={2} href='#'>Login</NavItem>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        <div>
-          <Jumbotron>
-            <h1>React Starter Kit</h1>
-            <p>
-              This is a front end using react , using backend as Node.
-            </p>
-            <p><Button bsStyle='primary'>Learn more</Button></p>
-          </Jumbotron>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <div>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/home" exact component={HomePage} />
+            <Route path="/about" exact component={AboutPage} />
+            <Route path="/courses" exact component={CoursesPage} />
+          </div>
         </div>
-
-      </div>
-    )
+      </BrowserRouter>
+    );
   }
 }
 
-export default App
+export default App;
