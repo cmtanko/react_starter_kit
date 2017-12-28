@@ -52,6 +52,7 @@ const CourseForm = ({
         componentClass="select"
         required
         placeholder="Type"
+        onChange={onChange}
       >
         {allAuthors.map((author, index) => {
           return (

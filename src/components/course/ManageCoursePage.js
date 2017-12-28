@@ -31,7 +31,6 @@ class ManageCoursePage extends React.Component {
   }
 
   render() {
-    const { course } = this.props;
     return (
       <div>
         <h1>Manage Course</h1>
@@ -39,7 +38,7 @@ class ManageCoursePage extends React.Component {
           allAuthors={this.props.authors}
           onChange={this.updateCourseState}
           onSave={this.saveCourse}
-          course={course}
+          course={this.state.course}
           errors={this.state.errors}
         />
       </div>
