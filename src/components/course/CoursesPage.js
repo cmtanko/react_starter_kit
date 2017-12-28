@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import { Input } from 'react-bootstrap';
+import { FormGroup, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 import { bindActionCreators } from 'redux';
+import CourseList from './CourseList';
 
-class CoursesPage extends React.Component {
+class CoursesPage extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -14,36 +14,26 @@ class CoursesPage extends React.Component {
       course: { title: '' }
     };
 
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
+    this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
   }
 
-  onTitleChange(event) {
-    const course = this.state.course;
-    course.title = event.target.value;
-    this.setState({ course: course });
-  }
-
-  onClickSave() {
-    this.props.actions.createCourse(this.state.course);
-  }
-
-  courseRow(course, index) {
-    return <div key={index}>{course.title}</div>;
+  redirectToAddCoursePage() {
+    this.props.history.push('/course');
   }
 
   render() {
+    const { courses } = this.props;
     return (
       <div className="">
         <h1>Courses Page</h1>
-        {this.props.courses.map(this.courseRow)}
-        <h2>Add Course</h2>
-        <input
-          type="text"
-          onChange={this.onTitleChange}
-          value={this.state.course.title}
-        />
-        <input type="submit" onClick={this.onClickSave} value="Save" />
+        <form>
+          <FormGroup>
+            <Button bsStyle="primary" onClick={this.redirectToAddCoursePage}>
+              Add Course
+            </Button>
+          </FormGroup>
+        </form>
+        <CourseList courses={courses} />
       </div>
     );
   }

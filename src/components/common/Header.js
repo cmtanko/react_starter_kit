@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+import React from 'react';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#">React-Starter-Kit</a>
+          <a href="/">React-Starter-Kit</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
