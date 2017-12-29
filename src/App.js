@@ -7,13 +7,15 @@ import Header from './components/common/Header';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import { Grid, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-          <Header />
+          <Header loading={this.props.loading} />
           <Grid>
             <Row className="show-grid">
               <code>
@@ -38,4 +40,14 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  loading: PropTypes.bool.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    loading: state.ajaxCallsInProgress > 0
+  };
+}
+
+export default connect(mapStateToProps)(App);

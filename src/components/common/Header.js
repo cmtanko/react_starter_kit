@@ -1,8 +1,10 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import LoadingDots from './LoadingDots';
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({ loading }) => {
   return (
     <Navbar collapseOnSelect>
       <Navbar.Header>
@@ -22,6 +24,8 @@ const Header = () => {
           <LinkContainer to="/courses">
             <NavItem>Courses</NavItem>
           </LinkContainer>
+
+          {loading && <LoadingDots interval={100} dots={20} />}
         </Nav>
         <Nav pullRight>
           <LinkContainer to="/register">
@@ -34,6 +38,10 @@ const Header = () => {
       </Navbar.Collapse>
     </Navbar>
   );
+};
+
+Header.propTypes = {
+  loading: PropTypes.bool.isRequired
 };
 
 export default Header;
