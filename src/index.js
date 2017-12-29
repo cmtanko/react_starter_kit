@@ -5,6 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import '../node_modules/toastr/build/toastr.min.css';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { loadCourses } from './actions/courseActions';

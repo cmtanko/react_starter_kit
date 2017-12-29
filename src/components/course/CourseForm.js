@@ -8,8 +8,8 @@ const CourseForm = ({
   allAuthors,
   onSave,
   onChange,
-  loading,
-  errors
+  errors,
+  saving
 }) => {
   return (
     <form>
@@ -64,7 +64,7 @@ const CourseForm = ({
       </FormControl>
       <FormGroup>
         <Button bsStyle="primary" onClick={onSave}>
-          Submit
+          {saving ? 'Saving...' : 'Save'}
         </Button>
       </FormGroup>
     </form>
@@ -76,7 +76,7 @@ CourseForm.propTypes = {
   allCourses: PropTypes.array,
   onChange: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
-  loading: PropTypes.bool,
+  saving: PropTypes.bool,
   errors: PropTypes.object
 };
 
