@@ -20,7 +20,7 @@ class ManageCoursePage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.course.id != nextProps.course.id) {
+    if (this.props.course.id !== nextProps.course.id) {
       this.setState({ course: nextProps.course });
     }
   }

@@ -9,6 +9,7 @@ import ManageCoursePage from './components/course/ManageCoursePage';
 import { Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import * as routes from './constants/routes';
 
 class App extends Component {
   render() {
@@ -20,13 +21,17 @@ class App extends Component {
             <Row className="show-grid">
               <code>
                 <div>
-                  <Route path="/" exact component={HomePage} />
-                  <Route path="/home" exact component={HomePage} />
-                  <Route path="/about" exact component={AboutPage} />
-                  <Route path="/courses" exact component={CoursesPage} />
-                  <Route path="/course" exact component={ManageCoursePage} />
+                  <Route path={routes.ROOT} exact component={HomePage} />
+                  <Route path={routes.HOME} exact component={HomePage} />
+                  <Route path={routes.ABOUT} exact component={AboutPage} />
+                  <Route path={routes.COURSES} exact component={CoursesPage} />
                   <Route
-                    path="/course/:id"
+                    path={routes.COURSE}
+                    exact
+                    component={ManageCoursePage}
+                  />
+                  <Route
+                    path={routes.COURSEID}
                     exact
                     component={ManageCoursePage}
                   />
