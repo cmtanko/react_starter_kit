@@ -1,5 +1,5 @@
-import config from '../config/config';
 import http from '../utils/http';
+import config from '../config/config';
 
 export async function fetchAllUsers() {
   let url = config.endpoints.users;

@@ -3,14 +3,9 @@ import PropTypes from 'prop-types';
 
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-const CourseForm = ({
-  course,
-  allAuthors,
-  onSave,
-  onChange,
-  errors,
-  saving
-}) => {
+const CourseForm = props => {
+  const { course, allAuthors, onSave, onChange, errors, saving } = props;
+
   return (
     <form>
       <FormGroup>
@@ -72,12 +67,12 @@ const CourseForm = ({
 };
 
 CourseForm.propTypes = {
-  course: PropTypes.object.isRequired,
-  allCourses: PropTypes.array,
-  onChange: PropTypes.func.isRequired,
-  onSave: PropTypes.func.isRequired,
   saving: PropTypes.bool,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  allCourses: PropTypes.array,
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  course: PropTypes.object.isRequired
 };
 
 export default CourseForm;

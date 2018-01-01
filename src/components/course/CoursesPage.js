@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { FormGroup, Button } from 'react-bootstrap';
 
 import CourseList from './CourseList';
+import { ADD_COURSE } from '../../constants/common';
 import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends Component {
@@ -24,13 +25,14 @@ class CoursesPage extends Component {
 
   render() {
     const { courses } = this.props;
+
     return (
       <div className="">
         <h1>Courses Page</h1>
         <form>
           <FormGroup>
             <Button bsStyle="primary" onClick={this.redirectToAddCoursePage}>
-              Add Course
+              {ADD_COURSE}
             </Button>
           </FormGroup>
         </form>
