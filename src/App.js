@@ -13,6 +13,8 @@ import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import ManageUserPage from './components/users/ManageUserPage';
+import ManageCountryPage from './components/country/ManageCountryPage';
+
 import CountryPage from './components/country/CountryPage';
 
 class App extends Component {
@@ -39,9 +41,13 @@ class App extends Component {
                   <Route
                     path={routes.COUNTRY}
                     exact
-                    component={ManageUserPage}
+                    component={ManageCountryPage}
                   />
-
+                  <Route
+                    path={routes.COUNTRYID}
+                    exact
+                    component={ManageCountryPage}
+                  />
                   <Route path={routes.COURSES} exact component={CoursesPage} />
                   <Route
                     path={routes.COURSE}
