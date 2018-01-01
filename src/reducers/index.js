@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
 import ajaxCallsInProgress from './ajaxStatusReducer';
+import users from './userReducer';
+import cities from './cityReducer';
 import courses from './courseReducer';
-import authors from './authorReducer';
+import countries from './countryReducer';
 
 const rootReducer = combineReducers({
   courses,
-  authors,
+  users,
+  cities,
+  countries,
   ajaxCallsInProgress
 });
 
