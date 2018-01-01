@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import * as courseActions from '../../actions/courseActions';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { FormGroup, Button } from 'react-bootstrap';
+
 import CourseList from './CourseList';
+import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends Component {
   constructor(props, context) {
