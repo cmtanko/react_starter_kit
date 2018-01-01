@@ -1,8 +1,9 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import LoadingDots from './LoadingDots';
 import PropTypes from 'prop-types';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+
+import LoadingDots from './LoadingDots';
 
 const Header = ({ loading }) => {
   return (
@@ -18,8 +19,8 @@ const Header = ({ loading }) => {
           <LinkContainer to="/home">
             <NavItem>Home</NavItem>
           </LinkContainer>
-          <LinkContainer to="/about">
-            <NavItem>About</NavItem>
+          <LinkContainer to="/users">
+            <NavItem>Users</NavItem>
           </LinkContainer>
           <LinkContainer to="/courses">
             <NavItem>Courses</NavItem>

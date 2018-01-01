@@ -1,5 +1,10 @@
 export default {
-  authors: [],
+  cities: [],
+  countries: {
+    list: [],
+    isLoading: false
+  },
   courses: [],
+  users: [],
   ajaxCallsInProgress: 0
 };
