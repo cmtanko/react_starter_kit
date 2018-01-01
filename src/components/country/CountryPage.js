@@ -20,7 +20,6 @@ class CountryPage extends Component {
     this.props.actions
       .deleteCountry(id)
       .then(() => {
-        this.context.router.history.push('/countries');
         toastr.success('Country deleted successfully!');
       })
       .catch(error => {

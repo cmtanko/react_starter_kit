@@ -28,7 +28,7 @@ export function deleteCountry(id) {
     return countries
       .deleteCountry(id)
       .then(result => {
-        dispatch(deleteCountrySuccess(result));
+        dispatch(loadCountries());
       })
       .catch(error => {
         throw error;
