@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as countryActions from '../../actions/countryActions';
 import CountryForm from './CountryForm';
 import toastr from 'toastr';
+import { saveCountry, loadCountries } from '../../actions/countryActions';
 
 class ManageCountryPage extends React.Component {
   constructor(props, context) {
@@ -23,6 +24,7 @@ class ManageCountryPage extends React.Component {
       this.setState({ country: nextProps.country });
     }
   }
+
   redirect() {
     toastr.success('Country Saved!');
     this.setState({ saving: false });
@@ -36,12 +38,11 @@ class ManageCountryPage extends React.Component {
     return this.setState({ country: country });
   }
 
-  saveCountry(event) {
-    event.preventDefault();
-    this.setState({ saving: true });
-    this.props.actions
+  saveCountry() {
+    this.props
       .saveCountry(this.state.country)
       .then(() => {
+        this.props.loadCountries();
         this.redirect();
       })
       .catch(error => {
@@ -76,7 +77,7 @@ function getCountryById(countries, id) {
   return null;
 }
 
-function mapStateToProps(state, ownProps) {
+const mapStateToProps = (state, ownProps) => {
   const countryId = ownProps.match.params.id;
 
   let country = {
@@ -88,12 +89,13 @@ function mapStateToProps(state, ownProps) {
   return {
     country: country
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(countryActions, dispatch)
-  };
-}
+const mapDispatchToProps = {
+  saveCountry,
+  loadCountries
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCountryPage);
+const enhance = connect(mapStateToProps, mapDispatchToProps);
+
+export default enhance(ManageCountryPage);

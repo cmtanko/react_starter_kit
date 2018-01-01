@@ -1,6 +1,9 @@
 export default {
   cities: [],
-  countries: [],
+  countries: {
+    list: [],
+    isLoading: false
+  },
   courses: [],
   users: [],
   ajaxCallsInProgress: 0
