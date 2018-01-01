@@ -6,13 +6,11 @@ import UserList from './UserList';
 class UserPage extends Component {
   constructor(props, context) {
     super(props, context);
-
-    this.redirectToAddUserPage = this.redirectToAddUserPage.bind(this);
   }
 
-  redirectToAddUserPage() {
+  redirectToAddUserPage = () => {
     this.props.history.push('/user');
-  }
+  };
 
   render() {
     const { users } = this.props;

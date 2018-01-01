@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
+const UserForm = props => {
+  const { allCountries, allCities, onChange, onAbort } = props;
+
   return (
     <form>
       <FormGroup>

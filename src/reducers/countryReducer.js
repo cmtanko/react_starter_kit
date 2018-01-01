@@ -5,8 +5,6 @@ export default function countryReducer(state = initialState.countries, action) {
   switch (action.type) {
     case types.LOAD_COUNTRIES_SUCCESS:
       return action.countries;
-    case types.DELETE_COUNTRIES_SUCCESS:
-      return state;
     default:
       return state;
   }

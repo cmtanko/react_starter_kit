@@ -4,6 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 import LoadingDots from './LoadingDots';
+import * as header from '../../constants/common';
 
 const Header = ({ loading }) => {
   return (
@@ -17,23 +18,24 @@ const Header = ({ loading }) => {
       <Navbar.Collapse>
         <Nav>
           <LinkContainer to="/home">
-            <NavItem>Home</NavItem>
+            <NavItem>{header.HOME}</NavItem>
           </LinkContainer>
           <LinkContainer to="/users">
-            <NavItem>Users</NavItem>
+            <NavItem>{header.USERS}</NavItem>
           </LinkContainer>
+
           <LinkContainer to="/countries">
-            <NavItem>Countries</NavItem>
+            <NavItem>{header.COUNTRIES}</NavItem>
           </LinkContainer>
 
           {loading && <LoadingDots interval={100} dots={20} />}
         </Nav>
         <Nav pullRight>
           <LinkContainer to="/register">
-            <NavItem>Register</NavItem>
+            <NavItem>{header.REGISTER}</NavItem>
           </LinkContainer>
           <LinkContainer to="/login">
-            <NavItem>Login</NavItem>
+            <NavItem>{header.LOGIN}</NavItem>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>
