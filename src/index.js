@@ -11,13 +11,11 @@ import '../node_modules/toastr/build/toastr.min.css';
 import { loadUsers } from './actions/userActions';
 import { loadCities } from './actions/cityActions';
 import { loadCourses } from './actions/courseActions';
-import { loadCountries } from './actions/countryActions';
 import registerServiceWorker from './registerServiceWorker';
 
 store.dispatch(loadUsers());
 store.dispatch(loadCities());
 store.dispatch(loadCourses());
-store.dispatch(loadCountries());
 
 render(
   <Provider store={store}>

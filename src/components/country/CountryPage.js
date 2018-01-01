@@ -1,36 +1,40 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { FormGroup, Button } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as countryActions from '../../actions/countryActions';
+// Indentation according to the length size.
 import toastr from 'toastr';
+import PropTypes from 'prop-types';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { FormGroup, Button } from 'react-bootstrap';
+
+import {
+  fetchAllCountries,
+  deleteCountries
+} from '../../actions/countryActions';
 
 const propTypes = {};
 
 class CountryPage extends Component {
   constructor(props, context) {
     super(props, context);
-    this.deleteCountry = this.deleteCountry.bind(this);
+  }
+  componentWillMount() {
+    this.props.fetchAllCountries();
   }
 
-  deleteCountry(event, id) {
-    event.preventDefault();
-    this.setState({ saving: true });
-    this.props.actions
-      .deleteCountry(id)
-      .then(() => {
-        this.context.router.history.push('/countries');
-        toastr.success('Country deleted successfully!');
-      })
-      .catch(error => {
-        this.setState({ saving: false });
-        toastr.error(error);
-      });
+  /**
+   * Delete the selected country.
+   *
+   * @param {number} id
+   * @returns {Promise<void>}
+   */
+  async deleteCountry(id) {
+    await this.props.deleteCountries(id);
+    this.props.fetchAllCountries();
   }
 
   render() {
-    const { countries } = this.props;
+    const { list, isLoading } = this.props.countries;
 
     return (
       <div className="">
@@ -51,22 +55,24 @@ class CountryPage extends Component {
             </tr>
           </thead>
           <tbody>
-            {countries.map((country, index) => (
-              <tr key={index}>
-                <td>{country.id}</td>
-                <td>{country.country}</td>
-                <td>
-                  <FormGroup>
-                    <Button
-                      bsStyle="warning"
-                      onClick={event => this.deleteCountry(event, country.id)}
-                    >
-                      Delete
-                    </Button>
-                  </FormGroup>
-                </td>
-              </tr>
-            ))}
+            {!isLoading &&
+              list &&
+              list.map((country, index) => (
+                <tr key={index}>
+                  <td>{country.id}</td>
+                  <td>{country.country}</td>
+                  <td>
+                    <FormGroup>
+                      <Button
+                        bsStyle="warning"
+                        onClick={() => this.deleteCountry(country.id)}
+                      >
+                        Delete
+                      </Button>
+                    </FormGroup>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
@@ -79,16 +85,18 @@ CountryPage.contextTypes = {
   router: PropTypes.object
 };
 
-function mapStateToProps(state, ownProps) {
-  return {
-    countries: state.countries
-  };
-}
+//Changed to es6 as code look much cleaner.
+const mapStateToProps = state => ({
+  countries: state.countries
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(countryActions, dispatch)
-  };
-}
+//Changed to es6 as code look much cleaner.
+const mapDispatchToProps = {
+  deleteCountries,
+  fetchAllCountries
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryPage);
+// Added compose so we later we can pass many things in our component
+const enhance = connect(mapStateToProps, mapDispatchToProps);
+
+export default enhance(CountryPage);

@@ -3,10 +3,27 @@ import initialState from './initialState';
 
 export default function countryReducer(state = initialState.countries, action) {
   switch (action.type) {
-    case types.LOAD_COUNTRIES_SUCCESS:
-      return action.countries;
-    case types.DELETE_COUNTRIES_SUCCESS:
-      return [...state.filter(country => country.id !== action.country.id)];
+    case types.DELETE_COUNTRIES_SUCCESS_PENDING:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case types.DELETE_COUNTRIES_SUCCESS_FULFILLED:
+      return {
+        ...state,
+        isLoading: false
+      };
+    case types.LOAD_COUNTRIES_SUCCESS_PENDING:
+      return {
+        ...state,
+        isLoading: true,
+        list: []
+      };
+    case types.LOAD_COUNTRIES_SUCCESS_FULFILLED:
+      return {
+        list: action.payload,
+        isLoading: false
+      };
     default:
       return state;
   }
