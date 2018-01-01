@@ -1,7 +1,7 @@
 export default {
-  cities: [],
-  countries: [],
-  courses: [],
   users: [],
+  cities: [],
+  courses: [],
+  countries: [],
   ajaxCallsInProgress: 0
 };

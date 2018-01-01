@@ -1,10 +1,12 @@
 import React from 'react';
+import toastr from 'toastr';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as courseActions from '../../actions/courseActions';
+
 import CourseForm from './CourseForm';
-import toastr from 'toastr';
+import { MANAGE_COURSE } from '../../constants/common';
+import * as courseActions from '../../actions/courseActions';
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
@@ -15,8 +17,6 @@ class ManageCoursePage extends React.Component {
       errors: {},
       saving: false
     };
-    this.updateCourseState = this.updateCourseState.bind(this);
-    this.saveCourse = this.saveCourse.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,37 +24,36 @@ class ManageCoursePage extends React.Component {
       this.setState({ course: nextProps.course });
     }
   }
+
   redirect() {
     toastr.success('Course Saved!');
     this.setState({ saving: false });
     this.context.router.history.push('/courses');
   }
 
-  saveCourse(event) {
+  saveCourse = async event => {
     event.preventDefault();
     this.setState({ saving: true });
-    this.props.actions
-      .saveCourse(this.state.course)
-      .then(() => {
-        this.redirect();
-      })
-      .catch(error => {
-        this.setState({ saving: false });
-        toastr.error(error);
-      });
-  }
+    try {
+      await this.props.actions.saveCourse(this.state.course);
+      this.redirect();
+    } catch (error) {
+      this.setState({ saving: false });
+      toastr.error(error);
+    }
+  };
 
-  updateCourseState(event) {
+  updateCourseState = event => {
     const field = event.target.name;
     let course = this.state.course;
     course[field] = event.target.value;
     return this.setState({ course: course });
-  }
+  };
 
   render() {
     return (
       <div>
-        <h1>Manage Course</h1>
+        <h1>{MANAGE_COURSE}</h1>
         <CourseForm
           allAuthors={this.props.authors}
           onChange={this.updateCourseState}

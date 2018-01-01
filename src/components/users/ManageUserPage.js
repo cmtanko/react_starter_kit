@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import UserForm from './UserForm';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
+
+import UserForm from './UserForm';
 
 const propTypes = {};
 
@@ -12,21 +13,18 @@ class ManageUserPage extends Component {
     this.state = {
       user: Object.assign({}, this.props.users)
     };
-
-    this.updateState = this.updateState.bind(this);
-    this.onAbort = this.onAbort.bind(this);
   }
 
-  updateState(event) {
+  updateState = event => {
     const field = event.target.name;
     let user = this.state.user;
     user[field] = event.target.value;
     return this.setState({ user: user });
-  }
+  };
 
-  onAbort(event) {
+  onAbort = event => {
     this.context.router.history.push('/users');
-  }
+  };
 
   saveUser(event) {
     event.preventDefault();
@@ -48,12 +46,10 @@ class ManageUserPage extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    countries: state.countries,
-    cities: state.cities
-  };
-}
+const mapStateToProps = state => {
+  cities: state.cities;
+  countries: state.countries;
+};
 
 ManageUserPage.propTypes = propTypes;
 ManageUserPage.contextTypes = {

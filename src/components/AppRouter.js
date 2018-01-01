@@ -4,17 +4,17 @@ import React, { Component } from 'react';
 import { Grid, Row } from 'react-bootstrap';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import './App.css';
-import * as routes from './constants/routes';
-import Header from './components/common/Header';
-import HomePage from './components/home/HomePage';
-import UserPage from './components/users/UserPage';
-import CoursesPage from './components/course/CoursesPage';
-import ManageCoursePage from './components/course/ManageCoursePage';
-import ManageUserPage from './components/users/ManageUserPage';
-import ManageCountryPage from './components/country/ManageCountryPage';
+import '../App.css';
+import Header from './common/Header';
+import HomePage from './home/HomePage';
+import UserPage from './users/UserPage';
+import CoursesPage from './course/CoursesPage';
+import CountryPage from './country/CountryPage';
+import ManageUserPage from './users/ManageUserPage';
+import ManageCoursePage from './course/ManageCoursePage';
+import ManageCountryPage from './country/ManageCountryPage';
 
-import CountryPage from './components/country/CountryPage';
+import * as routes from '../constants/routes';
 
 class App extends Component {
   render() {
