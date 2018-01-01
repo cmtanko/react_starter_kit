@@ -9,7 +9,6 @@ import * as routes from './constants/routes';
 import Header from './components/common/Header';
 import HomePage from './components/home/HomePage';
 import UserPage from './components/users/UserPage';
-import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import ManageUserPage from './components/users/ManageUserPage';

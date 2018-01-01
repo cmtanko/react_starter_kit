@@ -22,8 +22,8 @@ const Header = ({ loading }) => {
           <LinkContainer to="/users">
             <NavItem>Users</NavItem>
           </LinkContainer>
-          <LinkContainer to="/courses">
-            <NavItem>Courses</NavItem>
+          <LinkContainer to="/countries">
+            <NavItem>Countries</NavItem>
           </LinkContainer>
 
           {loading && <LoadingDots interval={100} dots={20} />}

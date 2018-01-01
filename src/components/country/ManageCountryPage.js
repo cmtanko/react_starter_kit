@@ -15,10 +15,14 @@ class ManageCountryPage extends React.Component {
       errors: {},
       saving: false
     };
-    this.saveCountry = this.saveCountry.bind(this);
     this.updateCountryState = this.updateCountryState.bind(this);
+    this.saveCountry = this.saveCountry.bind(this);
   }
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props.country.id !== nextProps.country.id) {
+      this.setState({ country: nextProps.country });
+    }
+  }
   redirect() {
     toastr.success('Country Saved!');
     this.setState({ saving: false });
@@ -29,7 +33,7 @@ class ManageCountryPage extends React.Component {
     const field = event.target.name;
     let country = this.state.country;
     country[field] = event.target.value;
-    return this.setState({ county: country });
+    return this.setState({ country: country });
   }
 
   saveCountry(event) {
@@ -51,6 +55,7 @@ class ManageCountryPage extends React.Component {
       <div>
         <h1>Manage Country</h1>
         <CountryForm
+          country={this.state.country}
           onSave={this.saveCountry}
           onChange={this.updateCountryState}
         />
@@ -75,7 +80,6 @@ function mapStateToProps(state, ownProps) {
   const countryId = ownProps.match.params.id;
 
   let country = {
-    id: '',
     country: ''
   };
   if (countryId && state.countries.length > 0) {

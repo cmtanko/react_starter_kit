@@ -6,6 +6,10 @@ export function loadCountriesSuccess(countries) {
   return { type: types.LOAD_COUNTRIES_SUCCESS, countries };
 }
 
+export function saveCountrySuccess(countries) {
+  return { type: types.SAVE_COUNTRIES_SUCCESS, countries };
+}
+
 export function updateCountrySuccess(result) {
   return { type: types.UPDATE_COUNTRIES_SUCCESS, result };
 }
@@ -33,6 +37,7 @@ export function updateCountries(country) {
       .updateCountry(country)
       .then(result => {
         dispatch(loadCountries());
+        dispatch(updateCountrySuccess());
       })
       .catch(error => {
         throw error;
@@ -47,6 +52,7 @@ export function saveCountry(country) {
       .saveCountry(country)
       .then(result => {
         dispatch(loadCountries());
+        dispatch(saveCountrySuccess());
       })
       .catch(error => {
         throw error;
@@ -61,6 +67,7 @@ export function deleteCountry(id) {
       .deleteCountry(id)
       .then(result => {
         dispatch(loadCountries());
+        dispatch(deleteCountrySuccess());
       })
       .catch(error => {
         throw error;
