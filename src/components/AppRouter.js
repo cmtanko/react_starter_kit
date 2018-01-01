@@ -6,8 +6,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import '../App.css';
 
-import * as routes from '../constants/routes';
-
 import Header from './common/Header';
 import HomePage from './home/HomePage';
 import UserPage from './users/UserPage';
@@ -16,6 +14,9 @@ import CoursesPage from './course/CoursesPage';
 import CountryPage from './country/CountryPage';
 import ManageUserPage from './users/ManageUserPage';
 import ManageCoursePage from './course/ManageCoursePage';
+import ManageCountryPage from './country/ManageCountryPage';
+
+import * as routes from '../constants/routes';
 
 class App extends Component {
   render() {
@@ -41,9 +42,13 @@ class App extends Component {
                   <Route
                     path={routes.COUNTRY}
                     exact
-                    component={ManageUserPage}
+                    component={ManageCountryPage}
                   />
-
+                  <Route
+                    path={routes.COUNTRYID}
+                    exact
+                    component={ManageCountryPage}
+                  />
                   <Route path={routes.COURSES} exact component={CoursesPage} />
                   <Route
                     path={routes.COURSE}

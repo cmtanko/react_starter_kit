@@ -1,6 +1,7 @@
 import toastr from 'toastr';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { FormGroup, Button } from 'react-bootstrap';
@@ -13,6 +14,7 @@ class CountryPage extends Component {
   constructor(props, context) {
     super(props, context);
     this.deleteCountry = this.deleteCountry.bind(this);
+    this.redirectToAddCountryPage = this.redirectToAddCountryPage.bind(this);
   }
 
   deleteCountry(event, id) {
@@ -21,7 +23,6 @@ class CountryPage extends Component {
     this.props.actions
       .deleteCountry(id)
       .then(() => {
-        this.context.router.history.push('/countries');
         toastr.success('Country deleted successfully!');
       })
       .catch(error => {
@@ -30,15 +31,18 @@ class CountryPage extends Component {
       });
   }
 
+  redirectToAddCountryPage() {
+    this.props.history.push('/country');
+  }
+
   render() {
     const { countries } = this.props;
-
     return (
       <div className="">
         <h1>Country List</h1>
         <form>
           <FormGroup>
-            <Button bsStyle="primary" onClick={this.redirectToAddUserPage}>
+            <Button bsStyle="primary" onClick={this.redirectToAddCountryPage}>
               Add Country
             </Button>
           </FormGroup>
@@ -55,7 +59,9 @@ class CountryPage extends Component {
             {countries.map((country, index) => (
               <tr key={index}>
                 <td>{country.id}</td>
-                <td>{country.country}</td>
+                <td>
+                  <Link to={'/country/' + country.id}>{country.country}</Link>
+                </td>
                 <td>
                   <FormGroup>
                     <Button
