@@ -16,14 +16,59 @@ import ManageUserPage from './components/users/ManageUserPage';
 import ManageCountryPage from './components/country/ManageCountryPage';
 
 import CountryPage from './components/country/CountryPage';
-import Router from './Router';
 
 class App extends Component {
   render() {
-    return <Router />;
+    return (
+      <BrowserRouter history={history}>
+        <div className="App">
+          <Header loading={this.props.loading} />
+          <Grid>
+            <Row className="show-grid">
+              <div>
+                <Switch>
+                  <Route path={routes.ROOT} exact component={HomePage} />
+                  <Route path={routes.HOME} exact component={HomePage} />
+
+                  <Route path={routes.USERS} exact component={UserPage} />
+                  <Route path={routes.USER} exact component={ManageUserPage} />
+
+                  <Route
+                    path={routes.COUNTRIES}
+                    exact
+                    component={CountryPage}
+                  />
+                  <Route
+                    path={routes.COUNTRY}
+                    exact
+                    component={ManageCountryPage}
+                  />
+                  <Route
+                    path={routes.COUNTRYID}
+                    exact
+                    component={ManageCountryPage}
+                  />
+                  <Route path={routes.COURSES} exact component={CoursesPage} />
+                  <Route
+                    path={routes.COURSE}
+                    exact
+                    component={ManageCoursePage}
+                  />
+                  <Route
+                    path={routes.COURSEID}
+                    exact
+                    component={ManageCoursePage}
+                  />
+                  <Route component={HomePage} />
+                </Switch>
+              </div>
+            </Row>
+          </Grid>
+        </div>
+      </BrowserRouter>
+    );
   }
 }
-
 App.propTypes = {
   loading: PropTypes.bool.isRequired
 };
