@@ -60,7 +60,7 @@ class App extends Component {
                     exact
                     component={ManageCoursePage}
                   />
-                  <Route component={HomePage} />
+                  <Route path="*" component={HomePage} />
                 </Switch>
               </div>
             </Row>
