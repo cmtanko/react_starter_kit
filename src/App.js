@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { Grid, Row } from 'react-bootstrap';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import * as routes from './constants/routes';
@@ -25,8 +25,8 @@ class App extends Component {
           <Header loading={this.props.loading} />
           <Grid>
             <Row className="show-grid">
-              <code>
-                <div>
+              <div>
+                <Switch>
                   <Route path={routes.ROOT} exact component={HomePage} />
                   <Route path={routes.HOME} exact component={HomePage} />
 
@@ -59,8 +59,8 @@ class App extends Component {
                     exact
                     component={ManageCoursePage}
                   />
-                </div>
-              </code>
+                </Switch>
+              </div>
             </Row>
           </Grid>
         </div>
