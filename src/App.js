@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import * as routes from './constants/routes';
-import history from './utils/history';
+// import history from './utils/history';
 import Header from './components/common/Header';
 import HomePage from './components/home/HomePage';
 import UserPage from './components/users/UserPage';
@@ -14,8 +14,9 @@ import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import ManageUserPage from './components/users/ManageUserPage';
 import ManageCountryPage from './components/country/ManageCountryPage';
-
+import { createBrowserHistory } from 'history';
 import CountryPage from './components/country/CountryPage';
+const history = createBrowserHistory();
 
 class App extends Component {
   render() {
