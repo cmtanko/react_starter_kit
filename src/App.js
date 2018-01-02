@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import './App.css';
 import * as routes from './constants/routes';
+import history from './utils/history';
 import Header from './components/common/Header';
 import HomePage from './components/home/HomePage';
 import UserPage from './components/users/UserPage';
@@ -19,7 +20,7 @@ import CountryPage from './components/country/CountryPage';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <div className="App">
           <Header loading={this.props.loading} />
           <Grid>
