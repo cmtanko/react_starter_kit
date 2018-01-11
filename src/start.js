@@ -1,22 +1,23 @@
+const url = require('url');
+const path = require('path');
+var log = require('electron-log');
 const electron = require('electron');
+
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
-const path = require('path');
-const url = require('url');
-
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 800, height: 600 });
-
+  mainWindow = new BrowserWindow({
+    fullscreen: true
+  });
+  mainWindow.webContents.openDevTools();
   mainWindow.loadURL(
-    process.env.ELECTRON_START_URL ||
-      url.format({
-        pathname: path.join(__dirname, '/../build/index.html'),
-        protocol: 'file:',
-        slashes: true
-      })
+    url.format({
+      pathname: path.join(__dirname, '/../build/index.html'),
+      protocol: 'file:',
+      slashes: true
+    })
   );
 
   mainWindow.on('closed', () => {
