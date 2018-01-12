@@ -1,6 +1,6 @@
 {
   "name": "react_starter_kit",
-  "productName": "React Starter kit",
+  "product-name": "reactstarterkit",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
@@ -53,7 +53,7 @@
     "start": "nf start -p 3000",
     "electron": "electron .",
     "electron-start": "node src/start-react",
-    "package-win": "electron-packager . react-starter-kit --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "winbuild": "electron-packager . react-starter-kit --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
     "flow": "flow",
     "precommit": "lint-staged",
     "heroku-postbuild": "npm install --only=dev && npm install && npm run build",
@@ -63,6 +63,7 @@
     "test": "react-scripts test --env=jsdom",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "winappbuild": "electron-windows-store --input-directory D:\\Personal\\React_Starter_kit\\react_starter_kit_Win\\react_starter_kit\\build --output-directory D:\\Personal\\React_Starter_kit\\react_starter_kit_Win\\react_starter_kit\\windows-store --flatten true"
   }
 }

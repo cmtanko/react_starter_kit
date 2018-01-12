@@ -3,13 +3,14 @@ const path = require('path');
 var log = require('electron-log');
 const electron = require('electron');
 
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const { app, Menu, BrowserWindow } = electron;
 let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    fullscreen: true
+    title: 'My App',
+    transparent: true,
+    titleBarStyle: 'hidden'
   });
   mainWindow.webContents.openDevTools();
   mainWindow.loadURL(
@@ -23,6 +24,7 @@ function createWindow() {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+  mainWindow.setMenu(null);
 }
 
 app.on('ready', createWindow);

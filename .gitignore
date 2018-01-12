@@ -9,6 +9,8 @@
 # production
 /build
 /release-builds
+/windows-store
+
 # misc
 .DS_Store
 .env.local
