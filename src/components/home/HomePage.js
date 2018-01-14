@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NoteList from '../notes/NotesPage';
 
 class HomePage extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class HomePage extends React.Component {
         <Link to="users" className="btn btn-primary btn-lg">
           Learn more
         </Link>
+        {/* <NoteList/> */}
       </div>
     );
   }
