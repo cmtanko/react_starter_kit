@@ -1060,3 +1060,14 @@
 [Sun, 14 Jan 2018 14:57:55 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_local/6.kB6I6M0gzEenjy4wTIsw%3D%3D? 304
 [Sun, 14 Jan 2018 14:57:55 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_changes?style=all_docs&seq_interval=100&since=5&limit=100 304
 [Sun, 14 Jan 2018 14:57:55 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_local/6.kB6I6M0gzEenjy4wTIsw%3D%3D? 304
+[Sun, 14 Jan 2018 14:58:26 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_changes?style=all_docs&feed=longpoll&seq_interval=100&heartbeat=10000&since=5&limit=100 200
+[Sun, 14 Jan 2018 14:58:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET / 304
+[Sun, 14 Jan 2018 14:58:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_local/6.kB6I6M0gzEenjy4wTIsw%3D%3D? 304
+[Sun, 14 Jan 2018 14:58:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_changes?style=all_docs&seq_interval=100&since=5&limit=100 304
+[Sun, 14 Jan 2018 14:58:32 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_local/6.kB6I6M0gzEenjy4wTIsw%3D%3D? 304
+[Sun, 14 Jan 2018 14:59:03 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_changes?style=all_docs&feed=longpoll&seq_interval=100&heartbeat=10000&since=5&limit=100 200
+[Sun, 14 Jan 2018 14:59:13 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET / 304
+[Sun, 14 Jan 2018 14:59:13 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_local/6.kB6I6M0gzEenjy4wTIsw%3D%3D? 304
+[Sun, 14 Jan 2018 14:59:13 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_changes?style=all_docs&seq_interval=100&since=5&limit=100 304
+[Sun, 14 Jan 2018 14:59:13 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_local/6.kB6I6M0gzEenjy4wTIsw%3D%3D? 304
+[Sun, 14 Jan 2018 14:59:44 GMT] [info] [<0.000.0>] 127.0.0.1 - - GET /chatdb/_changes?style=all_docs&feed=longpoll&seq_interval=100&heartbeat=10000&since=5&limit=100 200
