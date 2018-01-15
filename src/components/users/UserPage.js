@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { FormGroup, Button } from 'react-bootstrap';
-import { fetchPeople } from '../../actions/userActions';
+import { loadUsers } from '../../actions/userActions';
+import UserList from './UserList';
 
 class UserPage extends Component {
   constructor(props, context) {
@@ -9,11 +10,14 @@ class UserPage extends Component {
     console.dir(props);
     this.redirectToAddUserPage = this.redirectToAddUserPage.bind(this);
   }
+
   redirectToAddUserPage() {
     this.props.history.push('/user');
   }
 
   render() {
+    const { list, isLoading } = this.props.users;
+    console.log(list);
     return (
       <div className="">
         <h1>User Page</h1>
@@ -24,18 +28,19 @@ class UserPage extends Component {
             </Button>
           </FormGroup>
         </form>
+        <UserList users={list} />
       </div>
     );
   }
 }
 
 const mapDispatchToProps = {
-  fetchPeople
+  loadUsers
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    people: state.people
+    users: state.users
   };
 }
 

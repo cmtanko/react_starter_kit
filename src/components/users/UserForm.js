@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
+const UserForm = ({ onChange, onAbort, onSave }) => {
   return (
     <form>
       <FormGroup>
@@ -65,7 +65,7 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
         />
       </FormGroup>
 
-      <FormGroup>
+      {/* <FormGroup>
         <FormControl
           name="country"
           componentClass="select"
@@ -73,17 +73,17 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
           placeholder="Country"
           onChange={onChange}
         >
-          {allCountries.map((country, index) => {
+          {/* {allCountries.map((country, index) => {
             return (
               <option key={index} value={country.id}>
                 {country.country}
               </option>
             );
-          })}
-        </FormControl>
-      </FormGroup>
+          })} */}
+      {/* </FormControl>
+      </FormGroup> */}
 
-      <FormGroup>
+      {/* <FormGroup>
         <FormControl
           name="city"
           componentClass="select"
@@ -98,10 +98,12 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
             );
           })}
         </FormControl>
-      </FormGroup>
+      </FormGroup> */}
 
       <FormGroup>
-        <Button bsStyle="primary">Save</Button>
+        <Button bsStyle="primary" onClick={onSave}>
+          Save
+        </Button>
         <Button bsStyle="default" onClick={onAbort}>
           Back
         </Button>
@@ -111,8 +113,7 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
 };
 
 UserForm.propTypes = {
-  allCountries: PropTypes.array.isRequired,
-  allCities: PropTypes.array.isRequired,
+  onSave: PropTypes.function,
   onChange: PropTypes.function,
   onAbort: PropTypes.function
 };

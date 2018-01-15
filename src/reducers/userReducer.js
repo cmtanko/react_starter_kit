@@ -14,6 +14,18 @@ export default (state = initialState.users, action) => {
         list: action.payload,
         isLoading: false
       };
+
+    case types.SAVE_USER_SUCCESS_PENDING:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case types.SAVE_USER_SUCCESS_FULFILLED:
+      return {
+        ...state,
+        isLoading: false
+      };
+
     case 'SET_GREETING':
       return {
         ...state,

@@ -10,13 +10,15 @@ const UserListRow = ({ user }) => {
   return (
     <tr>
       <td>
-        <Link to={'/user/' + user.id}>
-          {user.first_name} {user.last_name}
+        <Link to={'/user/' + user._id}>
+          {user.user.first_name} {user.user.last_name}
         </Link>
       </td>
-      <td>{user.email}</td>
+      <td>{user.user.email}</td>
       <td>
-        {user.address} {user.address2}, {user.district}-{user.city}
+        {user.user.address} {user.user.address2}, {user.user.district}-{
+          user.user.city
+        }
       </td>
       <td>{user.country}</td>
       <td>{user.activebool ? 'Active' : 'Inactive'}</td>

@@ -8,11 +8,11 @@ import store from './store/configureStore';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import '../node_modules/toastr/build/toastr.min.css';
-import { fetchPeople } from './actions/userActions';
+import { loadUsers } from './actions/userActions';
 import { loadCountries } from './actions/countryActions';
 import registerServiceWorker from './registerServiceWorker';
 
-store.dispatch(fetchPeople());
+store.dispatch(loadUsers());
 store.dispatch(loadCountries());
 
 render(
