@@ -4,7 +4,6 @@ import config from '../config/config';
 export async function fetchAllCountries() {
   let url = config.endpoints.countries;
   let { data } = await http.get(url);
-
   return data;
 }
 

@@ -28,6 +28,11 @@ const CountryForm = ({ country, onChange, onAbort, onSave }) => {
   );
 };
 
-CountryForm.propTypes = {};
+CountryForm.propTypes = {
+  country: PropTypes.object.isRequired,
+  onChange: PropTypes.function,
+  onAbort: PropTypes.function,
+  onSave: PropTypes.function
+};
 
 export default CountryForm;

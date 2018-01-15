@@ -1,10 +1,11 @@
 export default {
-  cities: [],
   countries: {
     list: [],
     isLoading: false
   },
-  courses: [],
-  users: [],
+  users: {
+    list: [],
+    isLoading: false
+  },
   ajaxCallsInProgress: 0
 };

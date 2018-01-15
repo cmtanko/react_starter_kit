@@ -110,6 +110,11 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
   );
 };
 
-UserForm.propTypes = {};
+UserForm.propTypes = {
+  allCountries: PropTypes.array.isRequired,
+  allCities: PropTypes.array.isRequired,
+  onChange: PropTypes.function,
+  onAbort: PropTypes.function
+};
 
 export default UserForm;

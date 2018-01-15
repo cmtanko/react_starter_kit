@@ -3,6 +3,19 @@ import { beginAjaxCall } from './ajaxStatusActions';
 import * as countries from '../services/countries';
 import { createAction } from 'redux-actions';
 
+export const saveCountry = createAction(
+  types.SAVE_COUNTRIES_SUCCESS,
+  countries.saveCountry
+);
+export const loadCountries = createAction(
+  types.LOAD_COUNTRIES_SUCCESS,
+  countries.fetchAllCountries
+);
+export const deleteCountry = createAction(
+  types.DELETE_COUNTRIES_SUCCESS,
+  countries.deleteCountry
+);
+
 // export function loadCountriesSuccess(countries) {
 //   return { type: types.LOAD_COUNTRIES_SUCCESS, countries };
 // }
@@ -60,18 +73,6 @@ export function updateCountries(country) {
 //       });
 //   };
 // }
-export const saveCountry = createAction(
-  types.SAVE_COUNTRIES_SUCCESS,
-  countries.saveCountry
-);
-export const loadCountries = createAction(
-  types.LOAD_COUNTRIES_SUCCESS,
-  countries.fetchAllCountries
-);
-export const deleteCountry = createAction(
-  types.DELETE_COUNTRIES_SUCCESS,
-  countries.deleteCountry
-);
 
 // export function deleteCountry(id) {
 //   return function(dispatch) {
