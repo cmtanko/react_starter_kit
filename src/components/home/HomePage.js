@@ -5,11 +5,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="jumbotron">
-        <h1>HomePage</h1>
-        <p>subtitle</p>
-        <Link to="users" className="btn btn-primary btn-lg">
-          Learn more
-        </Link>
+        <h1>React Starter Kit</h1>
+        <p>Starter kit for react built on top of Create-React-App</p>
       </div>
     );
   }
