@@ -1,6 +1,6 @@
-import db from '../db';
-import * as user from '../services/people';
 import { createAction } from 'redux-actions';
+
+import * as user from '../services/people';
 import * as types from '../actions/actionTypes';
 
 export const loadUsers = createAction(types.LOAD_USERS_SUCCESS, user.loadUsers);

@@ -15,7 +15,7 @@ class UserPage extends Component {
   }
 
   render() {
-    const { list, isLoading } = this.props.users;
+    const { list } = this.props.users;
     return (
       <div className="">
         <h1>User Page</h1>
