@@ -7,7 +7,6 @@ import UserList from './UserList';
 class UserPage extends Component {
   constructor(props, context) {
     super(props, context);
-    console.dir(props);
     this.redirectToAddUserPage = this.redirectToAddUserPage.bind(this);
   }
 
@@ -17,7 +16,6 @@ class UserPage extends Component {
 
   render() {
     const { list, isLoading } = this.props.users;
-    console.log(list);
     return (
       <div className="">
         <h1>User Page</h1>

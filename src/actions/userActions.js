@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import db from '../db';
 import * as user from '../services/people';
 import { createAction } from 'redux-actions';
