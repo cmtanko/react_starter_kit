@@ -4,7 +4,7 @@ import store from './store/configureStore';
 import { loadUsers } from './actions/userActions';
 
 let localDB = new PouchDB('tester');
-let remoteDB = new PouchDB('http://localhost:5984/app1');
+let remoteDB = new PouchDB('https://suchansuchan.cloudant.com/app1');
 
 localDB
   .sync(remoteDB, {
