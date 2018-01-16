@@ -64,42 +64,6 @@ const UserForm = ({ onChange, onAbort, onSave }) => {
           onChange={onChange}
         />
       </FormGroup>
-
-      {/* <FormGroup>
-        <FormControl
-          name="country"
-          componentClass="select"
-          required
-          placeholder="Country"
-          onChange={onChange}
-        >
-          {/* {allCountries.map((country, index) => {
-            return (
-              <option key={index} value={country.id}>
-                {country.country}
-              </option>
-            );
-          })} */}
-      {/* </FormControl>
-      </FormGroup> */}
-
-      {/* <FormGroup>
-        <FormControl
-          name="city"
-          componentClass="select"
-          required
-          placeholder="City"
-        >
-          {allCities.map((city, index) => {
-            return (
-              <option key={index} value={city.id}>
-                {city.city}
-              </option>
-            );
-          })}
-        </FormControl>
-      </FormGroup> */}
-
       <FormGroup>
         <Button bsStyle="primary" onClick={onSave}>
           Save

@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import UserForm from './UserForm';
-import { connect } from 'react-redux';
-import { saveUser, loadUsers } from '../../actions/userActions';
 import toastr from 'toastr';
+import PropTypes from 'prop-types';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+
+import UserForm from './UserForm';
+import { saveUser, loadUsers } from '../../actions/userActions';
 
 const propTypes = {};
 
@@ -66,6 +68,11 @@ class ManageUserPage extends Component {
   }
 }
 
+ManageUserPage.propTypes = propTypes;
+ManageUserPage.contextTypes = {
+  router: PropTypes.object
+};
+
 function mapStateToProps(state, ownProps) {
   return {
     countries: state.countries,
@@ -77,9 +84,5 @@ const mapDispatchToProps = {
   loadUsers
 };
 
-ManageUserPage.propTypes = propTypes;
-ManageUserPage.contextTypes = {
-  router: PropTypes.object
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ManageUserPage);
+const enhance = compose(connect(mapStateToProps, mapDispatchToProps));
+export default enhance(ManageUserPage);

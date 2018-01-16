@@ -28,7 +28,6 @@ class App extends Component {
                 <Switch>
                   <Route path={routes.ROOT} exact component={HomePage} />
                   <Route path={routes.HOME} exact component={HomePage} />
-
                   <Route path={routes.USERS} exact component={UserPage} />
                   <Route path={routes.USER} exact component={ManageUserPage} />
                   <Route
@@ -36,7 +35,6 @@ class App extends Component {
                     exact
                     component={ManageUserPage}
                   />
-
                   <Route
                     path={routes.COUNTRIES}
                     exact
