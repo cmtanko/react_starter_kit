@@ -1,25 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import * as routes from '../../constants/routes';
 
 const propTypes = {
   user: PropTypes.object.isRequired
 };
 
-const UserListRow = ({ user }) => {
+const UserListRow = props => {
+  debugger;
+  const {
+    first_name,
+    last_name,
+    email,
+    address,
+    address2,
+    district,
+    city,
+    country,
+    activebool
+  } = props.user.user;
   return (
     <tr>
       <td>
-        <Link to={'/user/' + user.id}>
-          {user.first_name} {user.last_name}
+        <Link to={routes.USER + props.user._id}>
+          {first_name} {last_name}
         </Link>
       </td>
-      <td>{user.email}</td>
+      <td>{email}</td>
       <td>
-        {user.address} {user.address2}, {user.district}-{user.city}
+        {address} {address2}, {district}-{city}
       </td>
-      <td>{user.country}</td>
-      <td>{user.activebool ? 'Active' : 'Inactive'}</td>
+      <td>{country}</td>
+      <td>{activebool ? 'Active' : 'Inactive'}</td>
     </tr>
   );
 };

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { FormGroup, Button } from 'react-bootstrap';
 
 import { deleteCountry, loadCountries } from '../../actions/countryActions';

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as countryActions from '../../actions/countryActions';
 import CountryForm from './CountryForm';
 import toastr from 'toastr';
 import { saveCountry, loadCountries } from '../../actions/countryActions';
@@ -65,14 +63,12 @@ class ManageCountryPage extends React.Component {
   }
 }
 
-ManageCountryPage.propTypes = {};
-
 ManageCountryPage.contextTypes = {
   router: PropTypes.object
 };
 
 function getCountryById(countries, id) {
-  const country = countries.filter(country => country.id == id);
+  const country = countries.filter(country => country.id === id);
   if (country) return country[0];
   return null;
 }

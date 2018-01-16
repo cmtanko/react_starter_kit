@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
+const UserForm = ({ onChange, onAbort, onSave }) => {
   return (
     <form>
       <FormGroup>
@@ -64,44 +64,10 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
           onChange={onChange}
         />
       </FormGroup>
-
       <FormGroup>
-        <FormControl
-          name="country"
-          componentClass="select"
-          required
-          placeholder="Country"
-          onChange={onChange}
-        >
-          {allCountries.map((country, index) => {
-            return (
-              <option key={index} value={country.id}>
-                {country.country}
-              </option>
-            );
-          })}
-        </FormControl>
-      </FormGroup>
-
-      <FormGroup>
-        <FormControl
-          name="city"
-          componentClass="select"
-          required
-          placeholder="City"
-        >
-          {allCities.map((city, index) => {
-            return (
-              <option key={index} value={city.id}>
-                {city.city}
-              </option>
-            );
-          })}
-        </FormControl>
-      </FormGroup>
-
-      <FormGroup>
-        <Button bsStyle="primary">Save</Button>
+        <Button bsStyle="primary" onClick={onSave}>
+          Save
+        </Button>
         <Button bsStyle="default" onClick={onAbort}>
           Back
         </Button>
@@ -110,6 +76,10 @@ const UserForm = ({ allCountries, allCities, onChange, onAbort }) => {
   );
 };
 
-UserForm.propTypes = {};
+UserForm.propTypes = {
+  onSave: PropTypes.function,
+  onChange: PropTypes.function,
+  onAbort: PropTypes.function
+};
 
 export default UserForm;

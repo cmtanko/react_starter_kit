@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import toastr from 'toastr';
 import PropTypes from 'prop-types';
-import UserForm from './UserForm';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
+
+import UserForm from './UserForm';
+import { saveUser, loadUsers } from '../../actions/userActions';
 
 const propTypes = {};
 
@@ -15,6 +19,26 @@ class ManageUserPage extends Component {
 
     this.updateState = this.updateState.bind(this);
     this.onAbort = this.onAbort.bind(this);
+    this.onSave = this.onSave.bind(this);
+  }
+
+  onSave() {
+    this.props
+      .saveUser(this.state.user)
+      .then(() => {
+        this.props.loadUsers();
+        this.redirect();
+      })
+      .catch(error => {
+        this.setState({ saving: false });
+        toastr.error(error);
+      });
+  }
+
+  redirect() {
+    toastr.success('Country Saved!');
+    this.setState({ saving: false });
+    this.context.router.history.push('/users');
   }
 
   updateState(event) {
@@ -28,11 +52,6 @@ class ManageUserPage extends Component {
     this.context.router.history.push('/users');
   }
 
-  saveUser(event) {
-    event.preventDefault();
-    this.setState({ saving: true });
-  }
-
   render() {
     return (
       <div>
@@ -42,17 +61,11 @@ class ManageUserPage extends Component {
           allCities={this.props.cities}
           onChange={this.updateState}
           onAbort={this.onAbort}
+          onSave={this.onSave}
         />
       </div>
     );
   }
-}
-
-function mapStateToProps(state, ownProps) {
-  return {
-    countries: state.countries,
-    cities: state.cities
-  };
 }
 
 ManageUserPage.propTypes = propTypes;
@@ -60,4 +73,16 @@ ManageUserPage.contextTypes = {
   router: PropTypes.object
 };
 
-export default connect(mapStateToProps)(ManageUserPage);
+function mapStateToProps(state, ownProps) {
+  return {
+    countries: state.countries,
+    cities: state.cities
+  };
+}
+const mapDispatchToProps = {
+  saveUser,
+  loadUsers
+};
+
+const enhance = compose(connect(mapStateToProps, mapDispatchToProps));
+export default enhance(ManageUserPage);

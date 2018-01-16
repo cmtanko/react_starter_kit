@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { FormGroup, Button } from 'react-bootstrap';
+import { loadUsers } from '../../actions/userActions';
 import UserList from './UserList';
 
 class UserPage extends Component {
   constructor(props, context) {
     super(props, context);
-
     this.redirectToAddUserPage = this.redirectToAddUserPage.bind(this);
   }
 
@@ -15,7 +15,7 @@ class UserPage extends Component {
   }
 
   render() {
-    const { users } = this.props;
+    const { list } = this.props.users;
     return (
       <div className="">
         <h1>User Page</h1>
@@ -26,11 +26,15 @@ class UserPage extends Component {
             </Button>
           </FormGroup>
         </form>
-        <UserList users={users} />
+        <UserList users={list} />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = {
+  loadUsers
+};
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -38,4 +42,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

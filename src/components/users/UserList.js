@@ -18,7 +18,8 @@ const UserList = ({ users }) => (
       </tr>
     </thead>
     <tbody>
-      {users.map((user, index) => <UserListRow key={index} user={user} />)}
+      {users &&
+        users.map((user, index) => <UserListRow key={index} user={user} />)}
     </tbody>
   </table>
 );
