@@ -6,7 +6,7 @@
   "homepage": "./",
   "main": "src/start.js",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "bootstrap": "^3.3.7",
     "cluster": "^0.7.7",
     "concurrently": "^3.5.1",
