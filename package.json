@@ -7,7 +7,7 @@
   "main": "src/start.js",
   "dependencies": {
     "axios": "^0.17.1",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "cluster": "^0.7.7",
     "concurrently": "^3.5.1",
     "electron": "^1.7.10",
