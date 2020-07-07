@@ -10,7 +10,7 @@
     "bootstrap": "^3.3.7",
     "cluster": "^0.7.7",
     "concurrently": "^3.5.1",
-    "electron": "^1.7.10",
+    "electron": "^7.2.4",
     "electron-log": "^2.2.14",
     "flow-bin": "^0.59.0",
     "foreman": "^2.0.0",
